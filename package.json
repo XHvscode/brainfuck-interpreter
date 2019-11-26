@@ -7,7 +7,8 @@
         "vscode": "^1.40.0"
     },
     "categories": [
-        "Other"
+        "Other",
+        "Snippets"
     ],
     "activationEvents": [
         "onCommand:extension.runXH",
@@ -38,6 +39,12 @@
                 "extensions": [
                     ".xh"
                 ]
+            }
+        ],
+        "snippets": [
+            {
+                "language": "xh",
+                "path": "./xhsnippets.json"
             }
         ]
     },
