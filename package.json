@@ -32,9 +32,10 @@
             {
                 "id": "xh",
                 "aliases": [
-                    "xh"
+                    "xh",
+                    "XH"
                 ],
-                "extension": [
+                "extensions": [
                     ".xh"
                 ]
             }

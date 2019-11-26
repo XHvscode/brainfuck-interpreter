@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.languages.registerCompletionItemProvider(
             { language: "xh", scheme: "file" },
             new XHCompletionItemProvider(),
-            "+", "-", "["
+            "+", "-"
         )
     );
 }
