@@ -4,7 +4,7 @@ import { stringify } from "querystring";
 
 const SUPPORT_OPT = ['\\+', '\\-'];
 
-export class XHCompletionItemProvider implements vscode.CompletionItemProvider {
+export class BrainfuckCompletionItemProvider implements vscode.CompletionItemProvider {
 
     provideCompletionItems(document: vscode.TextDocument,
         position: vscode.Position,

@@ -1,9 +1,9 @@
 import * as vscode from 'vscode';
-import * as xh from './xh';
+import * as brainfuck from './brainfuck';
 
 export function runCode(code: string, outputChannel: vscode.OutputChannel) {
     var counter = 0;
-    xh.complieXH2Funcion(code)(
+    brainfuck.complieBrainfunck2Funcion(code)(
         () => {
             return 0;
         },

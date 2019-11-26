@@ -1,7 +1,7 @@
 {
-    "name": "xh",
-    "displayName": "xh",
-    "description": "a xh language interpreter",
+    "name": "brainfuck-interpreter",
+    "displayName": "brainfuck-interpreter",
+    "description": "a brainfuck language interpreter",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.40.0"
@@ -11,40 +11,43 @@
         "Snippets"
     ],
     "activationEvents": [
-        "onCommand:extension.runXH",
-        "onLanguage:xh"
+        "onCommand:extension.runBrainfuck",
+        "onLanguage:brainfuck"
     ],
     "main": "./out/extension.js",
     "contributes": {
         "commands": [
             {
-                "command": "extension.runXH",
-                "title": "runXH"
+                "command": "extension.runBrainfuck",
+                "title": "runBrainfuck"
             }
         ],
         "menus": {
             "editor/context": [
                 {
-                    "command": "extension.runXH"
+                    "command": "extension.runBrainfuck"
                 }
             ]
         },
         "languages": [
             {
-                "id": "xh",
+                "id": "brainfuck",
                 "aliases": [
-                    "xh",
-                    "XH"
+                    "brainfuck",
+                    "Brainfuck",
+                    "BrainFuck",
+                    "BF",
+                    "bf"
                 ],
                 "extensions": [
-                    ".xh"
+                    ".bf"
                 ]
             }
         ],
         "snippets": [
             {
-                "language": "xh",
-                "path": "./xhsnippets.json"
+                "language": "brainfuck",
+                "path": "./bfsnippets.json"
             }
         ]
     },

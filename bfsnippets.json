@@ -1,9 +1,9 @@
 {
-    "XH_Jump_In_Unit_And_Loop": {
-        "scope": "xh",
+    "BF_Jump_In_Unit_And_Loop": {
+        "scope": "brainfuck",
         "prefix": "ul",
         "body": [
-            "[> $1 < $2]"
+            "[ > $1 < $2 ]"
         ],
         "description": "创建一个循环单元"
     }

@@ -1,4 +1,4 @@
-function complieXH(code: string): string {
+function complieBrainfuck(code: string): string {
     let comCode: string = "(function(r,w){var i=0;var t=new Uint8Array(30000);";
     let i: number;
     let countChars = function (char: string) {
@@ -44,8 +44,8 @@ function complieXH(code: string): string {
 
 // 第一个是读取方法，也就是xh需要从控制台读取一个字符时会回调的方法，你需要返回该字符在字符表中的位置
 // 第二个方法是写入方法，改方法是xh需要向控制台输出一个字符时的回调方法，输出的字符就是那个byte: number，是该字符在字符表中的位置。
-export function complieXH2Funcion(code: string): (
+export function complieBrainfunck2Funcion(code: string): (
     readFunction: () => number,
     writeFunction: (byte: number) => void) => Uint8Array {
-    return eval(complieXH(code));
+    return eval(complieBrainfuck(code));
 }
