@@ -49,7 +49,17 @@
                 "language": "brainfuck",
                 "path": "./bfsnippets.json"
             }
-        ]
+        ],
+        "configuration": {
+            "title": "Brainfuck",
+            "properties": {
+                "bf.openAutoComplete": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Whether open the auto compelete"
+                }
+            }
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",

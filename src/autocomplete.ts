@@ -11,6 +11,11 @@ export class BrainfuckCompletionItemProvider implements vscode.CompletionItemPro
         token: vscode.CancellationToken,
         context: vscode.CompletionContext):
         vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+
+        if (!vscode.workspace.getConfiguration().get<boolean>("bf.openAutoComplete")) {
+            return;
+        }
+
         var completion: vscode.CompletionItem | undefined;
         //当前行文本
         const currentLineText = document.lineAt(position.line).text;
