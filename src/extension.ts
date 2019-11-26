@@ -3,6 +3,7 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as runner from './coderunner';
+import { XHCompletionItemProvider } from './autocomplete';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -15,26 +16,31 @@ export function activate(context: vscode.ExtensionContext) {
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with registerCommand
     // The commandId parameter must match the command field in package.json
-    let disposable = vscode.commands.registerCommand('extension.runXH', async (path) => {
+    let disposable = vscode.commands.registerCommand('extension.runXH', (url) => {
         // The code you place here will be executed every time your command is executed
 
-        await vscode.window.showInputBox({ prompt: "Input some character" }).then((input) => {
-            input = input ? input : '';
-            const outputChannel = vscode.window.createOutputChannel("xh Interpreter");
-            outputChannel.show();
-            try {
-                const sourceCode = fs.readFileSync(path.path).toString();
-                // const sourceCode = "++++++ [ > ++++++++++ < - ] > +++++ .";
-                const output = runner.runCode(sourceCode, input, outputChannel);
-            }
-            catch (e) {
-                outputChannel.appendLine("Error:" + e.messge);
-            }
-        });
+        const outputChannel = vscode.window.createOutputChannel("xh Interpreter");
+        outputChannel.show();
+        try {
+            console.log(url.path);
+            const sourceCode = fs.readFileSync(url.path).toString();
+            const output = runner.runCode(sourceCode, outputChannel);
+        }
+        catch (e) {
+            outputChannel.appendLine("Error:" + e.messge);
+        }
 
     });
 
     context.subscriptions.push(disposable);
+
+    context.subscriptions.push(
+        vscode.languages.registerCompletionItemProvider(
+            { language: "xh", scheme: "file" },
+            new XHCompletionItemProvider(),
+            "+", "-", "["
+        )
+    );
 }
 
 // this method is called when your extension is deactivated
