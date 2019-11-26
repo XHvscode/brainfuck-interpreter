@@ -32,6 +32,9 @@ function complieXH(code: string): string {
             case "]":
                 comCode += "}";
                 break;
+            case ".":
+                comCode += "w(t[i]);";
+                break;
         }
     }
     comCode += "return t;})";
